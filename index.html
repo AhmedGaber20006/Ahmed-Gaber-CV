@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ar" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ahmed Gaber CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #96a0b5;
+            --accent: #06b6d4;
+            --glass: rgba(255, 255, 255, 0.03);
+            --radius: 14px;
+            --max-width: 1000px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, #071024 0%, #07182a 100%);
+            color: #e6eef6
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 28px auto;
+            padding: 24px
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(6px);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6)
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 18px;
+            flex: 0 0 120px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.04)
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .head-info {
+            flex: 1
+        }
+
+        .name-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px
+        }
+
+        h1 {
+            font-size: 22px;
+            margin: 0
+        }
+
+        p.role {
+            margin: 4px 0 8px;
+            color: var(--muted)
+        }
+
+        .contact {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .pill {
+            background: var(--glass);
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        /* Layout */
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 20px;
+            margin-top: 20px
+        }
+
+        @media (max-width:900px) {
+            .main {
+                grid-template-columns: 1fr
+            }
+
+            .avatar {
+                width: 96px;
+                height: 96px;
+                flex: 0 0 96px
+            }
+        }
+
+        /* Card */
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            padding: 18px;
+            border-radius: 14px
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 16px
+        }
+
+        /* Skills */
+        .skills {
+            display: grid;
+            gap: 12px
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .skill .bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 999px;
+            flex: 1;
+            margin-right: 12px;
+            overflow: hidden
+        }
+
+        .skill .bar>i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #8b5cf6);
+            border-radius: 999px
+        }
+
+        /* Experience */
+        .exp {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .job {
+            display: flex;
+            gap: 12px
+        }
+
+        .job .meta {
+            flex: 1
+        }
+
+        .job .meta h3 {
+            margin: 0;
+            font-size: 14px
+        }
+
+        .job .meta p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .job .time {
+            white-space: nowrap;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            gap: 12px
+        }
+
+        .proj {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02)
+        }
+
+        .proj a {
+            font-weight: 600
+        }
+
+        /* Right column */
+        .right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px
+        }
+
+        .download-row {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent), #8b5cf6);
+            color: #072032;
+            font-weight: 700
+        }
+
+        .ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            padding: 10px 12px;
+            border-radius: 10px
+        }
+
+        /* Contact form small */
+        .contact-form label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 6px
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 0;
+            background: rgba(255, 255, 255, 0.02);
+            color: inherit
+        }
+
+        .contact-form textarea {
+            min-height: 90px
+        }
+
+        /* footer */
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* print */
+        @media print {
+            body {
+                background: white;
+                color: black
+            }
+
+            .header,
+            .card {
+                box-shadow: none;
+                background: white
+            }
+
+            .btn,
+            .ghost,
+            .contact-form {
+                display: none
+            }
+        }
+        .padd{
+            padding: 0 10px;
+        }
+    </style>
+    <script>
+        function showImages(images) {
+            let popup = window.open("", "ProjectImages", "width=800,height=600,scrollbars=yes");
+            popup.document.write(`
+            <html>
+            <head>
+                <title>Project Images</title>
+                <style>
+                    body {
+                        margin: 0;
+                        font-family: sans-serif;
+                        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+                        color: white;
+                        text-align: center;
+                    }
+                    img {
+                        max-width: 50%;
+                        margin: 20px auto;
+                        display: block;
+                        border-radius: 8px;
+                        border: 2px solid rgba(255,255,255,0.2);
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+                    }
+                </style>
+            </head>
+            <body>
+        `);
+            images.forEach(src => {
+                popup.document.write(`<img src="${src}">`);
+            });
+            popup.document.write("</body></html>");
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="avatar"><img src="IMG-20241020-WA0032.jpg" alt="صورتك"></div>
+            <div class="head-info">
+                <div class="name-row">  
+                    <div>
+                        <h1>Ahmed Mohamed Ahmed Gaber</h1>
+                        <p class="role">Graphic designer /Programmer</p>
+                    </div>
+                    <div style="text-align:left">
+                        <div class="pill">Adress — Cairo</div>
+                        <div class="pill" style="margin-top:8px">Email: ap4000267@gmail.com</div>
+                    </div>
+                </div>
+                <p style="margin-top:12px;color:var(--muted);font-size:14px">
+                   . I'm  19 years old faculty of Computer science, Graphic designer, content creator 
+                   , basics of Web development 
+                </p>
+              
+
+                <div class="contact" style="margin-top:12px">
+                    <div class="pill">Mobile : +20 1508917802</div>
+                    <div class="pill"><a target="_blank" href="https://github.com/AhmedGaber20006">Github</a></div>
+                    <div class="pill"><a target="_blank" href="https://www.linkedin.com/in/ahmed-gaber-b88b7b25a/">Linkedin</a></div>
+                    <div class="pill"><a target="_blank" href="https://www.facebook.com/ahmed.gaber.111111?locale=ar_AR">Facebook</a></div>
+                    <div class="pill"><a target="_blank" href="https://www.youtube.com/@afhamhasah">Youtube</a></div>
+                    <div class="pill"><a target="_blank" href="https://www.tiktok.com/@afhanhasah?is_from_webapp=1&sender_device=pc">Tiktok</a></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section>
+                <div class="card">
+                    <h2> Experience</h2>
+                    <div class="exp">
+                        <div class="job">
+                            <div class="meta">
+                                <h3>Summer Training at ACM </h3>
+                                <p>Participated in a summer training program organized by ACM, focusing on problem-solving skills and algorithmic thinking.
+                                The training emphasized logical analysis, efficient solution design, and competitive programming techniques with
+                                writing actual code using c++, preparing participants for programming contests and technical challenges.
+</p>
+                            </div>
+                            <div class="time">2024—2025</div>
+                        </div>
+
+                        <div class="job">
+                            <div class="meta">
+                                <h3>YouTube Channel Management (Graphic Design)</h3>
+                                <p>Managed a YouTube channel focused on graphic design content, including planning and creating visual materials, designing
+                                thumbnails, optimizing video presentation, and ensuring consistent branding. Developed skills in audience engagement,
+                                content strategy, and visual communication.
+</p>
+                            </div>
+                            <div class="time">2022— 2024</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:16px">
+                    <h2>Projects</h2>
+                    <div class="projects">
+                        <div class="proj">
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <strong>Cairo Ride Metro System (C++ Project)</strong>
+                                <!-- داخل قسم المشروع -->
+                                <a href="#" onclick="showImages(['metro1.jpg','metro2.jpg','metro3.jpg','metro4.jpg','metro5.jpg','metro6.jpg','metro7.jpg','metro8.jpg','metro9.jpg','metro10.jpg','metro11.jpg','metro12.jpg','metro13.jpg','metro14.jpg','metro15.jpg','metro16.jpg','metro17.jpg','metro18.jpg'])">Show images </a>
+                            </div>
+                            <div class="muted" style="color:var(--muted);font-size:13px">  
+                                Developed a comprehensive metro ticketing and subscription management system using C++. The project supports both user
+                                and admin roles, with features including:
+                            User Functions: Registration, login, purchasing metro subscriptions, and ticket validation.
+                            
+                            Admin Functions: Adding, removing, and modifying metro stations, managing subscription plans, and overseeing system
+                            data.
+                            
+                            Additional Features: Zone-based permissions, travel history tracking, and file-based data handling at the start and end
+                            of execution.
+                            Designed with a focus on input validation, clean code structure, and user-friendly interaction.</div>
+                        </div>
+
+                        <div class="proj">
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <strong>Freelance Graphic Designer</strong>
+                                <a href="#" onclick="showImages(['design1.jpg','design2.jpg','design3.jpg','design4.jpg','design5.png','design6.','design7.jpg','design8.jpg','design9.png','design10.webp','design11.jpg','design12.jpg','design13.jpg','design14.jpg','design15.jpg'])">Show images</a>
+
+                            </div>
+                            <div class="muted" style="color:var(--muted);font-size:13px">As a freelance graphic designer, I specialize in creating eye-catching and professional visuals that help brands and
+                            content creators stand out. My work includes:
+                            
+                            YouTube Thumbnails that grab attention and boost click-through rates.
+                            
+                            Custom Logos that reflect brand identity and values.
+                            
+                            Social Media Graphics for platforms like Instagram, Facebook, and TikTok.
+                            
+                            Banner Designs for online ads and personal branding.
+                            
+                            I focus on blending creativity with functionality, ensuring every design communicates the right message and leaves a
+                            lasting impression.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:16px">
+                    <h2>Education</h2>
+                    <p style="margin:6px 0 0">Sophomore at Faculty of Computer Science Ain Shams University</p>
+                </div>
+
+            </section>
+
+            <aside class="right">
+                <div class="card">
+                    <h2>Skills</h2>
+                    <div class="skills">
+                        <div class="skill">
+                            <div class="padd"style="font-size:13px">HTML / CSS</div>
+                            <div class="bar"><i style="width:95%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="padd" style="font-size:13px">JavaScript</div>
+                            <div class="bar"><i style="width:85%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="padd"style="font-size:13px">++C</div>
+                            <div class="bar"><i style="width:80%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="padd"style="font-size:13px">Python</div>
+                            <div class="bar"><i style="width:70%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="padd" style="font-size:13px">Adobe Photoshop</div>
+                            <div class="bar"><i style="width:70%"></i></div>
+                            
+                        </div>
+                        <div class="skills">
+                            <div class="skill">
+                                <div class="padd" style="font-size:13px">Adobe Premiere</div>
+                                <div class="bar"><i style="width:70%"></i></div>
+                            </div>
+                            <div class="skill">
+                                <div class="padd" style="font-size:13px">Capcut</div>
+                                <div class="bar"><i style="width:70%"></i></div>
+                            
+                            </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="download-row">
+                        <a class="btn" href="cv.pdf" download>Download CV</a>
+                        <button class="ghost" onclick="window.print()">Print</button>
+                    </div>
+                    <p style="margin-top:10px;color:var(--muted);font-size:13px">Note: Put the <code>cv.pdf</code> file in the same folder as the files if you want the download button to work. 
+                       </p>
+                </div>
+
+                <div class="card contact-form">
+                    <h2>Contact</h2>
+                    <form onsubmit="event.preventDefault(); contact();">
+                        <label>Your Name</label>
+                        <input id="cf-name" placeholder="your name">
+                        <label>Email</label>
+                        <input id="cf-email" placeholder="example@email.com">
+                        <label>Message</label>
+                        <textarea id="cf-msg" placeholder="Write short message"></textarea>
+                        <div style="margin-top:10px">
+                            <button class="btn" type="submit">Send by Email</button>
+                        </div>
+                    </form>
+                </div>
+
+            </aside>
+        </main>
+
+        <footer>
+        AhmedGaber ©
+        </footer>
+    </div>
+
+    <script>
+        function contact() {
+            const name = document.getElementById('cf-name').value || 'No name';
+            const email = document.getElementById('cf-email').value || 'no@email';
+            const msg = document.getElementById('cf-msg').value || '';
+            const subject = encodeURIComponent('رسالة من صفحة السيرة الذاتية — ' + name);
+            const body = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + msg);
+            window.location.href = `mailto:ap4000267@gmail.com?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+
+</html>
